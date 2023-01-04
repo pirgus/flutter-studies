@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  _MyHomePageState createState() => _MyHomePageState();
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -21,6 +22,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
     });
   }
 
@@ -43,35 +50,23 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Incrementar botão',
-        onPressed: _incrementCounter,
-        child: Icon(Icons.add),
-        backgroundColor: Colors.amber,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+              focusColor: Color.fromARGB(255, 16, 82, 19),
+              tooltip: 'Incrementar botão',
+              onPressed: _incrementCounter,
+              child: Icon(Icons.add),
+              backgroundColor: Colors.green),
+          FloatingActionButton(
+              focusColor: Color.fromARGB(255, 121, 21, 14),
+              tooltip: 'Decrementar botão',
+              onPressed: _decrementCounter,
+              child: Icon(Icons.remove),
+              backgroundColor: Colors.red),
+        ],
       ),
-      bottomNavigationBar: BottomAppBar(
-          color: Colors.amber,
-          child: Container(
-            height: 80,
-            child: Padding(
-              padding: EdgeInsets.all(20),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                      onPressed: () {
-                        print('Adicionei alguma coisa');
-                      },
-                      icon: Icon(Icons.add_box, color: Colors.white)),
-                  IconButton(
-                    icon: Icon(Icons.add_a_photo, color: Colors.white),
-                    onPressed: () {
-                      print('Adicionei uma foto');
-                    },
-                  ),
-                ],
-              ),
-            ),
-          )),
     );
 
     throw UnimplementedError();
