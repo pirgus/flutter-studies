@@ -27,7 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _decrementCounter() {
     setState(() {
-      _counter--;
+      if (_counter > 0) _counter--;
     });
   }
 
@@ -54,13 +54,13 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
           FloatingActionButton(
-              focusColor: Color.fromARGB(255, 16, 82, 19),
+              hoverColor: Color.fromARGB(255, 38, 132, 42),
               tooltip: 'Incrementar botão',
               onPressed: _incrementCounter,
               child: Icon(Icons.add),
               backgroundColor: Colors.green),
           FloatingActionButton(
-              focusColor: Color.fromARGB(255, 121, 21, 14),
+              hoverColor: Color.fromARGB(255, 177, 25, 15),
               tooltip: 'Decrementar botão',
               onPressed: _decrementCounter,
               child: Icon(Icons.remove),
