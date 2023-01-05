@@ -19,6 +19,30 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Center(child: Text('Aplicação Básica')),
       ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            UserAccountsDrawerHeader(
+                currentAccountPicture: CircleAvatar(
+                  child: Text('P'),
+                  backgroundColor: Colors.purple,
+                ),
+                accountName: Text('Pirgus'),
+                accountEmail: Text('pirgus@email.com')),
+            ListTile(
+              title: Text('Configurações'),
+              trailing: Icon(Icons.play_arrow_rounded),
+              onTap: () {
+                setState(() {
+                  indexBottomNavigation = 0;
+                });
+                _pageController.jumpToPage(0);
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       body: PageView(
         controller: _pageController,
         children: [
