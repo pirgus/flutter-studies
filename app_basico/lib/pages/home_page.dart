@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pageViews/page_account.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({super.key});
 
@@ -20,59 +22,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         controller: _pageController,
         children: [
-          Column(
-            children: [
-              Container(
-                margin: const EdgeInsets.all(10),
-                height: 100,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: Center(
-                  child: Text(
-                    'Olá, mundo!',
-                    style: TextStyle(color: Colors.white, fontSize: 30),
-                  ),
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 143, 106, 246),
-                          borderRadius: BorderRadius.all(Radius.circular(20))),
-                      height: 100,
-                      width: MediaQuery.of(context).size.width / 2 - 16.0,
-                      child: Center(
-                          child: Text(
-                        'Primeiro container',
-                        style: TextStyle(color: Colors.white),
-                      )),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 143, 106, 246),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20))),
-                        height: 100,
-                        width: MediaQuery.of(context).size.width / 2 - 16.0,
-                        child: Center(
-                            child: Text(
-                          'Segundo container',
-                          style: TextStyle(color: Colors.white),
-                        ))),
-                  ),
-                ],
-              )
-            ],
-          ),
+          PageAccount(),
           Container(
             width: 100,
             height: 100,
